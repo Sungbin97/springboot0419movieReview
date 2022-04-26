@@ -12,13 +12,11 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@ToString(exclude = "m_member")
-public class Member extends BaseEntity{
+@ToString
+public class Movie extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long mid;
+    private Long mno;
 
-    private String email;
-    private String pw;
-    private String nickname;
+    private String title;
 }

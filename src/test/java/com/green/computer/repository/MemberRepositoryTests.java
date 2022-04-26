@@ -14,13 +14,14 @@ public class MemberRepositoryTests {
     private MemberRepository memberRepository;
 
     @Test
-    public void insertMember(){
-        IntStream.rangeClosed(1,100).forEach(i->{
+    public void insertMembers(){
+        IntStream.rangeClosed(1, 100).forEach(i->{
             Member member = Member.builder()
-                    .email("User"+i+"@aaa.com")
-                    .password("1111")
-                    .name("User"+i)
+                    .email("r"+i+"@green.com")
+                    .pw("1111")
+                    .nickname("reviewer")
                     .build();
+
             memberRepository.save(member);
         });
     }
