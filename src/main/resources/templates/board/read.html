@@ -33,5 +33,13 @@
         <a th:href="@{/board/list(page=${requestDTO.page},type=${requestDTO.type},keyword=${requestDTO.keyword})}">
             <button class="btn btn-info">목록</button>
         </a>
+        <div>
+            <div class="mt-4">
+                <h5><span class="badge badge-secondary replyCount">댓글 갯수[[${dto.replyCount}]]</span> </h5>
+            </div>
+            <div class="list-group list-replyList">
+
+            </div>
+        </div>
     </th:block>
 </th:block>
