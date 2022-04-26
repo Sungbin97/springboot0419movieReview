@@ -73,6 +73,7 @@ public class BoardController {
 
         redirectAttributes.addAttribute("bno",dto.getBno());
         return "redirect:/board/read";
+        //git test
     }
 
 }
