@@ -13,6 +13,9 @@ public class MemberRepositoryTests {
     @Autowired
     private MemberRepository memberRepository;
 
+    @Autowired
+    private ReviewRepository reviewRepository;
+
     @Test
     public void insertMembers(){
         IntStream.rangeClosed(1, 100).forEach(i->{
@@ -21,8 +24,14 @@ public class MemberRepositoryTests {
                     .pw("1111")
                     .nickname("reviewer")
                     .build();
-
             memberRepository.save(member);
         });
+    }
+    @Test
+    public void testDeleteMember(){
+        Long mid = 1L; // Member의 id
+        Member member = Member.builder().mid(mid).build();
+        memberRepository.deleteById(mid);
+        reviewRepository.deleteByMember(member);
     }
 }

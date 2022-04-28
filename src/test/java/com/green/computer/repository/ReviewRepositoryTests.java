@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.UUID;
 import java.util.stream.IntStream;
 
@@ -39,6 +40,21 @@ public class ReviewRepositoryTests {
                     .text("이 영화에 대한 느낌..."+i)
                     .build();
             reviewRepository.save(review);
+        });
+    }
+    @Test
+    public void testGetMovieReviews(){
+        Movie movie = Movie.builder()
+                .mno(92L)
+                .build();
+
+        List<Review> result = reviewRepository.findByMovie(movie);
+        result.forEach(i->{
+            System.out.println(i.getReviewnum());
+            System.out.println("\t"+i.getGrade());
+            System.out.println("\t"+i.getText());
+            System.out.println("\t멤버"+i.getMember()); //.getEmail()
+            System.out.println("--------------------------");
         });
     }
 }
