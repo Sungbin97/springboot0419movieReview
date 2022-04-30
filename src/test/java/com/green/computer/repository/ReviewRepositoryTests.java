@@ -57,4 +57,9 @@ public class ReviewRepositoryTests {
             System.out.println("--------------------------");
         });
     }
+    
+    @Test
+    public void testShare(){
+        System.out.println("수정 잘되는가?"); 
+    }
 }
